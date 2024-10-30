@@ -1,0 +1,45 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+@layer components {
+    .input-base {
+      @apply tw-border tw-border-gray-300 tw-rounded-lg tw-w-min;
+    }
+
+    .base-btn{
+        @apply tw-text-center tw-cursor-pointer tw-rounded-full tw-border-none tw-no-underline hover:tw-no-underline !important 
+    }
+
+    .primary-btn{
+        @apply base-btn tw-text-white tw-inline-block tw-font-medium tw-bg-primary hover:tw-bg-primaryf
+    }
+
+    .secondary-btn{
+        @apply base-btn tw-text-black tw-inline-block  tw-font-medium tw-bg-secondary hover:tw-bg-secondaryf
+    }
+
+    .reg-input {
+        @apply tw-p-3 tw-font-medium tw-border-solid tw-rounded-full placeholder:tw-opacity-60 tw-text-base
+    
+    }
+
+    .reg-label{
+        @apply tw-font-semibold 
+    }
+
+    .multiline-label{
+        @apply tw-hidden
+    }
+
+    .sidebarContent{
+        @apply tw-flex tw-flex-col tw-overflow-auto 
+    }
+
+    .sidebarContent > a{
+        @apply tw-w-[95%] tw-rounded-[10px] tw-whitespace-nowrap tw-pt-2 tw-pb-2.5 tw-pl-2.5 max-lg:tw-pl-0 tw-cursor-pointer tw-no-underline tw-text-black tw-border-none tw-outline-none tw-overflow-hidden tw-text-ellipsis tw-text-lg hover:tw-bg-[#F5F5F5]
+    }
+    
+  }

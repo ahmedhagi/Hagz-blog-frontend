@@ -1,0 +1,32 @@
+/*.post-container {  display: grid;
+    grid-template-columns: 0.3fr 0.5fr;
+    grid-template-rows: 0.3fr 0.3fr 1.0fr 0.3fr;
+    gap: 3px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "Tags User"
+      "Title Title"
+      "Content Content"
+      "Comments Comments";
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #C0C0C0;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  .container {
+    width: 75%; 
+  }
+  
+  .Tags { grid-area: Tags; }
+  
+  .User { grid-area: User; }
+  
+  .Title { grid-area: Title; }
+  
+  .Content { grid-area: Content; }
+  
+  .Comments { grid-area: Comments; }
+  */

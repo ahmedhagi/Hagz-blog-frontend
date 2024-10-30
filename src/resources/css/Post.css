@@ -1,0 +1,74 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,200,300,400,550,600,700);
+
+body{
+  font-family: 'Open Sans', sans-serif;
+}
+
+.post-container{
+    overflow: hidden;
+    margin: 10px 0;
+  
+}
+
+.post-info{
+  display: flex;
+}
+
+.post-info a{
+  margin-right: 5px;
+  text-decoration: none;
+  color: #000000;
+}
+
+.post-user{
+  font-weight: 700;
+}
+
+.post-user:hover{
+  color: #8D8D8D;
+  text-decoration: underline;
+}
+
+.post-content{
+    margin-top: 25px;
+    margin-bottom: 40px;
+
+}
+
+.post-tags{
+    margin: 10px 0px;
+}
+
+.post-tag{
+  margin-left: 8px;
+}
+.post-tag a, .tag{
+  margin-right: 8px;
+  padding: 5px 15px;
+  background-color: #00BA1A;
+  color: white;
+  text-align: center;
+  border-radius: 9999px;
+  border-style: none;
+  text-decoration: none;
+ 
+}
+
+.post-tag a:hover{
+  background-color: #00D31D;
+}
+
+.tag{
+  background-color: #D3D3D3;
+  color: #000000 !important; 
+  margin-bottom: 5px;
+}
+
+.tag:hover{
+  background-color:#E6E6E6;
+}
+
+h2, h3 {
+  padding-top: 88px;
+margin-top: -88px;
+}

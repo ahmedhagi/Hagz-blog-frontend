@@ -1,0 +1,94 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
+
+@import url(https://fonts.googleapis.com/css?family=Lobster);
+
+
+/*.topnav {
+   
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+   
+    
+}*/
+
+/*.topnav:after{
+  content: "";
+  display:block;
+  border-bottom: 1px solid #E6E6E6;
+}*/
+
+.topnav ul {
+  list-style-type: none;
+  margin: 0;
+  /*padding: 0;*/
+  overflow: hidden;
+  background-color: #FFFFFF;
+  font-family: 'Open Sans', sans-serif;
+  
+  
+}
+
+/*.topnav li {
+  float: left;
+}
+
+.topnav-right {
+  float: right;
+  
+  
+} */
+
+
+
+.nav-logo, .nav-logo:hover, .nav-logo:visited, .nav-logo:active {
+  display: block;
+  color: #00BA1A !important;
+  font-size: 20px;
+  /*text-align: center;
+  padding: 14px 16px;*/
+  text-decoration: none;
+  font-family: 'Lobster', sans-serif;
+}
+
+.topnav-right li, #logout{
+  margin-top: 5px;
+  margin-left: 5px;
+  box-sizing: border-box;
+  border-radius: 9999px;
+}
+
+.topnav-button {
+  display: block;
+  color: black; 
+  text-align: center;
+  padding: 11px 25px;
+  text-decoration: none;
+  transition: all 0.5s ease 0s;
+}
+
+#login.topnav-button, #logout{
+  color: #FFFFFF;  
+}
+
+#signup.topnav-button{
+    color:inherit;
+}
+
+.login,#logout {
+  background-color: #00BA1A;
+}
+
+.signup {
+  background-color: #D3D3D3;
+}
+
+.login:hover,#logout:hover {
+  background-color: #00D31D;
+  
+}
+
+.signup:hover {
+  background-color: #E6E6E6;
+  text-decoration: none;
+}
+

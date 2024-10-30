@@ -1,0 +1,77 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
+
+.login-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+.login-form{
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  height: 550px;
+  padding: 30px;
+  width: 350px;
+}
+
+.login-container .title{
+  font-size: 36px;
+  margin-top: 30px;  
+}
+
+.login-container .subtitle{
+  font-size: 16px;
+  margin: 10px 0 30px;
+}
+
+.login-container .input-container{
+  position: relative;
+}
+
+/*.login-container label {
+  color: #8D8D8D;
+  position: absolute;
+  left: 16px;
+  top: 10px;
+  line-height: 16px;
+  font-size: 12px;
+} */
+
+/*.login-container .input-container input{
+  width: 100%;
+  height: 50px;
+  padding: 12px 20px 0px;
+  margin: 16px 0;
+  background-color: #F2F2F2;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 9999px;
+  box-sizing: border-box;
+}*/
+
+.login-container button{
+  width: 100%;
+  color: #FFFFFF;
+  background-color: #00BA1A;
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+  padding: 10px;
+  border-radius: 9999px;
+  border-style: none; 
+  font-size: 20px;
+}
+
+.login-container button:hover {
+  background-color: #00D31D
+}
+
+.login-container .signup-note{
+  font-size: 16px;
+  margin-top: 30px;
+}
+

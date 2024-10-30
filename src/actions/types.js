@@ -1,0 +1,47 @@
+//Type of Actions
+
+//actions for authenication
+export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
+export const REGISTER_FAIL = "REGISTER_FAIL";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_FAIL = "LOGIN_FAIL";
+export const LOGOUT = "LOGOUT";
+
+//actions for message
+export const SET_MESSAGE = "SET_MESSAGE";
+export const CLEAR_MESSAGE = "CLEAR_MESSAGE";
+
+//Gets a posts
+export const FETCH_POST_REQUEST = "FETCH_POST_REQUEST";
+export const FETCH_POST_SUCCESS = "FETCH_POST_SUCCESS";
+export const FETCH_POST_ERROR = "FETCH_POST_ERROR";
+
+export const CLEAR_POST = "CLEAR_POST";
+
+//Creates a new post
+export const CREATE_POST_REQUEST = "CREATE_POST_REQUEST";
+export const CREATE_POST_SUCCESS = "CREATE_POST_SUCCESS";
+export const CREATE_POST_ERROR = "CREATE_POST_ERROR";
+
+//Delete a new post
+export const DELETE_POST_REQUEST = "DELETE_POST_REQUEST";
+export const DELETE_POST_SUCCESS = "DELETE_POST_SUCCESS";
+export const DELETE_POST_ERROR = "DELETE_POST_ERROR";
+
+//Update a new post
+export const UPDATE_POST_REQUEST = "UPDATE_POST_REQUEST";
+export const UPDATE_POST_SUCCESS = "UPDATE_POST_SUCCESS";
+export const UPDATE_POST_ERROR = "UPDATE_POST_ERROR";
+
+//Add new comment to post
+export const ADD_COMMENT_REQUEST = "ADD_COMMENT_REQUEST";
+export const ADD_COMMENT_SUCCESS = "ADD_COMMENT_SUCCESS";
+export const ADD_COMMENT_ERROR = "ADD_COMMENT_ERROR";
+
+export const UPDATE_COMMENT_REQUEST = "UPDATE_COMMENT_REQUEST";
+export const UPDATE_COMMENT_SUCCESS = "UPDATE_COMMENT_SUCCESS";
+export const UPDATE_COMMENT_ERROR = "DELETE_COMMENT_ERROR";
+
+export const DELETE_COMMENT_REQUEST = "DELETE_COMMENT_REQUEST";
+export const DELETE_COMMENT_SUCCESS = "DELETE_COMMENT_SUCCESS";
+export const DELETE_COMMENT_ERROR = "DELETE_COMMENT_ERROR";

@@ -1,0 +1,94 @@
+import axios from "axios";
+import authHeader from "./auth-header";
+
+const API_URL = "http://localhost:8080/api/posts/";
+
+//GET Requests
+const getPostsContent = () => {
+  return axios.get(API_URL + "all");
+};
+
+const getPost = (id) => {
+  return axios
+    .get(API_URL + "get/" + id)
+    .then((response) => {
+      return response.data;
+    });
+};
+
+const getPostsByUsername = (username) => {
+  return axios
+    .get(API_URL + "get/username/" + username)
+    .then((response) => {
+      return response.data;
+    });
+};
+
+const getPostsByTopic = (topic) => {
+  return axios
+    .get(API_URL + "get/topic/" + topic)
+    .then((response) => {
+      return response.data;
+    });
+};
+
+const getPostsByTag = (tag) => {
+  return axios
+    .get(API_URL + "get/tag/" + tag)
+    .then((response) => {
+      return response.data;
+    })
+    ;
+};
+
+//POST Requests
+
+const createNewPost = (data) => {
+  return axios
+    .post(API_URL + "new_post",
+    data
+    , { headers: authHeader() })
+    .then((response) => {
+       return response.data
+    });
+};
+
+
+//UPDATE Requests
+const updatePost = (id,data) => {
+  return axios
+  .put(API_URL + "update/" +  id, 
+  data,
+  { headers: authHeader() })
+  .then((response) => {
+    return response.data;
+  });
+};
+
+//DELETE Requests
+const deletePost = (id) => {
+  return axios
+  .delete(API_URL + "delete/" +  id, { headers: authHeader() })
+  .then((response) => {
+    return response.data;
+  });
+};
+
+
+
+
+
+
+
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default {
+  getPostsContent,
+  getPost,
+  getPostsByTopic,
+  createNewPost,
+  deletePost,
+  updatePost,
+  getPostsByUsername,
+  getPostsByTag
+};
