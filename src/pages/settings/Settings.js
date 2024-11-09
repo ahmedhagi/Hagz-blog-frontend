@@ -38,9 +38,9 @@ export const Settings = () => {
 
   return (
     <>
-      {username &&
+    { (currentUser == null) !== (username &&
       currentUser &&
-      String(username) !== String(currentUser.username) ? (
+      String(username) !== String(currentUser.username)) ? (
         <Error
           code={
             currentUser && username && currentUser.usersname !== username

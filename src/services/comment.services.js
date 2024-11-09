@@ -1,6 +1,9 @@
 import axios from "axios";
 import authHeader from "./auth-header";
-const API_URL = "http://localhost:8080/api/comment/";
+
+import { urlProvider } from "../config/UrlProviderInstanceManager";
+
+const API_URL =  urlProvider.getDomainUrl() + "comment/";
 
 //Get comments from post
 const getComments = (id) => {

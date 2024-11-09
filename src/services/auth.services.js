@@ -1,6 +1,7 @@
 import axios from "axios";
+import { urlProvider } from "../config/UrlProviderInstanceManager";
 
-const API_URL = "http://localhost:8080/api/auth/";
+const API_URL =  urlProvider.getDomainUrl() + "auth/";
 
 //Register Request
 const register = (username, email, password) => {

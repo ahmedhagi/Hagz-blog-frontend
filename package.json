@@ -34,6 +34,9 @@
     "buffer": "^6.0.3",
     "classnames": "^2.5.1",
     "dateformat": "^5.0.3",
+    "dotenv": "^16.4.5",
+    "dotenv-webpack": "^8.1.0",
+    "env-cmd": "^10.1.0",
     "html-parser": "^0.11.0",
     "moment": "^2.29.4",
     "postcss-cli": "^11.0.0",
@@ -63,12 +66,15 @@
   "proxy": "http://localhost:8080/",
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm run build:css && react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:css": "postcss src/resources/tailwind.css -o src/resources/main.css",
     "watch:css": "postcss src/resources/tailwind.css -o src/resources/main.css --watch",
-    "new-start": "npm-run-all --parallel start watch:css"
+    "dev-start": "env-cmd -f .env.development.local npm-run-all --parallel start watch:css",
+    "prod-start": "env-cmd -f.env.production.local npm start",
+    "build:prod": "rm -rf build && env-cmd -f .env.production.local npm run build",
+    "build:dev": "rm -rf build && env-cmd -f .env.development.local npm run build"
   },
   "eslintConfig": {
     "extends": [

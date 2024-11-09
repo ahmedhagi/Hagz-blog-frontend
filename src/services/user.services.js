@@ -1,7 +1,9 @@
 import axios from "axios";
 import authHeader from "./auth-header";
 
-const API_URL = "http://localhost:8080/api/user/";
+import { urlProvider } from "../config/UrlProviderInstanceManager";
+
+const API_URL =  urlProvider.getDomainUrl() + "user/";
 
 //Get Request for user
 const getUser = (username) => {

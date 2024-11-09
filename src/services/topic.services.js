@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/api/topics/";
+import { urlProvider } from "../config/UrlProviderInstanceManager";
+
+const API_URL =  urlProvider.getDomainUrl() + "topics/";
 
 //Get Topics
 const getTopics = () => {
