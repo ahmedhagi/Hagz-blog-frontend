@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Image } from "../elements/Image";
 
 //Post preview shown in the recommended posts section of the post page
 export default function PostPreview({ postData }) {
@@ -6,7 +7,7 @@ export default function PostPreview({ postData }) {
 
   return (
     <>
-      <div className="tw-flex tw-flex-shrink-0 tw-justify-between">
+      <div className="tw-flex tw-overflow-hidden tw-flex-shrink-0 tw-justify-between">
         <div className="tw-flex tw-flex-col">
           <div className="tw-flex tw-flex-col tw-text-gray-400">
             <Link
@@ -21,8 +22,8 @@ export default function PostPreview({ postData }) {
                 className="tw-flex tw-flex-wrap tw-flex-grow tw-px-0.5 tw-font-medium tw-text-lg  tw-text-gray-400 "
               >
                 <div className="tw-flex tw-min-w-0">
-                  <div className="tw-flex tw-flex-col tw-gap-[300px]">
-                    <span className="tw-mt-2 tw-overflow-hidden tw-whitespace-pre-wrap">
+                  <div className="tw-flex-1 tw-flex tw-flex-col tw-gap-[300px] tw-min-w-0">
+                    <span className="tw-mt-2 tw-overflow-ellipsis tw-overflow-hidden tw-whitespace-pre-wrap postPreviewWebkit">
                       {post.title}
                     </span>
                   </div>
@@ -32,15 +33,11 @@ export default function PostPreview({ postData }) {
           </div>
         </div>
         <div className="tw-rounded-[10px] tw-w-[84px] tw-h-[84px] tw-m-0 tw-flex-shrink-0 tw-ml-2">
-          <img
-            className="tw-w-full tw-h-full tw-rounded-lg"
-            alt=""
-            src={`${
-              post.imageURL
-                ? post.imageURL
-                : require("../../resources/images/defaultHeader.jpg")
-            }`}
-          ></img>
+          <Image
+            imageUrl={post.imageUrl}
+            defaultUrl={require("../../resources/images/defaultHeader.jpg")}
+            className="tw-w-full tw-h-full tw-rounded-lg tw-object-cover"
+          />
         </div>
       </div>
       <div className="tw-text-sm tw-text-gray-400 tw-mb-3">

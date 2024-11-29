@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import UserService from "../../services/user.services";
 import { Link } from "react-router-dom";
+import { Image } from "../elements/Image";
 
 //Author information to be displayed by post
 export const AboutAuthor = () => {
@@ -37,15 +38,11 @@ export const AboutAuthor = () => {
             reloadDocument
             to={"/profile/" + post.username}
           >
-            <img
-              className="tw-object-cover tw-w-12 tw-h-12 tw-rounded-full tw-mr-2"
-              alt=""
-              src={`${
-                user.imageURL
-                  ? user.imageURL
-                  : require("../../resources/images/defaultProfilePic.png")
-              }`}
-            ></img>
+            <Image
+                imageUrl={user.imageUrl}
+                defaultUrl={require("../../resources/images/defaultProfilePic.png")}
+                className="tw-object-cover tw-w-12 tw-h-12 tw-rounded-full tw-mr-2"
+            />
             <p className="tw-mt-5 tw-font-bold tw-text-black hover:tw-text-blue-700">
               {user.username}
             </p>

@@ -3,6 +3,7 @@ import MainHeader from "./MainHeader";
 import PostCard from "./PostCard";
 import HagzSideBar from "../navbar/Sidebar";
 import ProfileHeader from "./ProfileHeader";
+import { Pagniation } from "./Pagniation";
 
 //Main Page which consists of PostCards
 export const MainHub = ({
@@ -11,6 +12,10 @@ export const MainHub = ({
   posts,
   profile,
   showResults,
+  offset,
+  setOffset,
+  totalPages,
+  totalResults
 }) => {
   return (
     <>
@@ -24,7 +29,7 @@ export const MainHub = ({
               <ProfileHeader />
             )}
             {showResults && (
-              <div className="tw-my-2 tw-ml-1">{posts.length} Posts</div>
+              <div className="tw-my-2 tw-ml-1">{totalResults} Posts</div>
             )}
 
             <div
@@ -42,6 +47,13 @@ export const MainHub = ({
                 return <PostCard key={index} post={post} />;
               })}
             </div>
+            { totalPages > 0 && 
+            (<Pagniation
+              offset={offset}
+              setOffset={setOffset}
+              totalPages={totalPages}
+            />)
+          }
           </div>
         </div>
       ) : (

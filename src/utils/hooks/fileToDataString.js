@@ -1,4 +1,4 @@
-//Coveret file to string URL
+//Convert file to string URL
 export const fileToDataString = (file) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();

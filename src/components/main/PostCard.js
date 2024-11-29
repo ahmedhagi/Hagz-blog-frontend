@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import dateFormat from "dateformat";
 import ReactHtmlParser from "react-html-parser";
+import { Image } from "../elements/Image";
 
 //PostCard that shows up on MainPages
 const PostCard = ({ post }) => {
@@ -14,15 +15,11 @@ const PostCard = ({ post }) => {
               className="tw-box-border"
               to={`/post/${post.id}/${post.slug}`}
             >
-              <img
+              <Image
+                imageUrl={post.imageUrl}
+                defaultUrl={require("../../resources/images/defaultHeader.jpg")}
                 className="tw-object-cover tw-w-full tw-h-[315px] tw-mb-5"
-                alt=""
-                src={`${
-                  post.imageURL
-                    ? post.imageURL
-                    : require("../../resources/images/defaultHeader.jpg")
-                }`}
-              ></img>
+            />
             </Link>
           </div>
           <div className="tw-px-2">

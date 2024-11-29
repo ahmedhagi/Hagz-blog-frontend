@@ -16,6 +16,7 @@ import { Spinner } from "../elements";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { register } from "../../actions/auth";
+import { fetchUser } from "../../actions/user";
 
 //Signup Form
 const SignUpForm = () => {
@@ -45,6 +46,8 @@ const SignUpForm = () => {
 
     await dispatch(register(username, email, password))
       .then(() => {
+         //gets user info
+         dispatch(fetchUser(username));
         //resets form and goes to profile page
         methods.reset();
         navigate("/profile/" + username);

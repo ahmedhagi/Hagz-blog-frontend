@@ -10,10 +10,14 @@ export const HeadingsSideBar = ({ title }) => {
   const { nestedHeadings } = useHeadingsData();
 
   return (
-    <nav className="tw-flex tw-flex-col tw-p-3">
-      <div className="tw-text-lg tw-font-bold ">{title}</div>
-      <Headings headings={nestedHeadings} activeId={activeId} />
-    </nav>
+    <>
+      {nestedHeadings.length > 0 ? (
+        <nav className="tw-flex tw-flex-col tw-p-3">
+          <div className="tw-text-lg tw-font-bold ">{title}</div>
+          <Headings headings={nestedHeadings} activeId={activeId} />
+        </nav>
+      ) : null}
+    </>
   );
 };
 export default HeadingsSideBar;

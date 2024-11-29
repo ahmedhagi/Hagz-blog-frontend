@@ -72,7 +72,7 @@
     "build:css": "postcss src/resources/tailwind.css -o src/resources/main.css",
     "watch:css": "postcss src/resources/tailwind.css -o src/resources/main.css --watch",
     "dev-start": "env-cmd -f .env.development.local npm-run-all --parallel start watch:css",
-    "prod-start": "env-cmd -f.env.production.local npm start",
+    "prod-start": "env-cmd -f.env.production.local npm-run-all --parallel start watch:css",
     "build:prod": "rm -rf build && env-cmd -f .env.production.local npm run build",
     "build:dev": "rm -rf build && env-cmd -f .env.development.local npm run build"
   },

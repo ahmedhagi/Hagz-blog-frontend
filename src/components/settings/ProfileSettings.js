@@ -1,7 +1,13 @@
 import { Input } from "../elements";
 import { TbCameraPlus } from "react-icons/tb";
 import { bio_validation } from "../../utils/validations/settingsValidations";
-import { useForm, FormProvider } from "react-hook-form";
+import { updateImage } from "../../utils/hooks/updateImage";
+import {
+  useForm,
+  FormProvider,
+  Controller,
+  useFormContext,
+} from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../../utils/validations/settingsValidations";
 import { useState, useEffect } from "react";
@@ -9,17 +15,19 @@ import UserService from "../../services/user.services";
 import { InputError } from "../elements";
 import { fileToDataString } from "../../utils/hooks/fileToDataString";
 import { IoMdCheckmarkCircle } from "react-icons/io";
+import { Image } from "../elements/Image";
 
 //Profile Picture Editor for the profile settings component
 const ProfilePictureEdit = ({ user }) => {
-  const [selectedImage, setSelectedImage] = useState(false);
+  const methods = useFormContext();
   const [previewImgUrl, setPreviewimgUrl] = useState("");
 
-  //Handle File Change for Profile picture 
-  const handleFileChange = async (event) => {
+  //Handle File Change for Profile picture
+  const handleFileChange = async (event, onChange) => {
     let file = event.target.files;
-    setSelectedImage(file?.[0]);
     try {
+      //invokes change in the form
+      onChange(file?.[0])
       //converts file to string for src
       const imgUrl = await fileToDataString(file?.[0]);
       //sets preview img to new img
@@ -37,25 +45,33 @@ const ProfilePictureEdit = ({ user }) => {
         className="tw-flex tw-mt-2 tw-flex-col tw-items-center tw-justify-center tw-w-[120px] tw-h-[120px] tw-border-2 tw-border-gray-300 tw-rounded-full tw-cursor-pointer tw-relative"
       >
         <div className="tw-flex tw-flex-col tw-items-center tw-justify-center tw-w-[120px] tw-h-[120px] tw-relative tw-overflow-auto tw-rounded-full tw-mix-blend-overlay tw-opacity-70 hover:tw-opacity-50">
-          <img
-            className="tw-object-cover tw-rounded-full tw-max-h-full tw-max-w-full tw-min-h-full tw-min-w-full"
-            src={
+          <Image
+            imageUrl={
               previewImgUrl
                 ? previewImgUrl
-                : user && user.imageURL !== null
-                ? user.imageURL
-                : require("../../resources/images/defaultProfilePic.png")
+                : user && user.imageUrl !== null
+                ? user.imageUrl
+                : ""
             }
-            alt="profilePreview"
+            defaultUrl={require("../../resources/images/defaultProfilePic.png")}
+            className="tw-object-cover tw-rounded-full tw-max-h-full tw-max-w-full tw-min-h-full tw-min-w-full"
           />
           <TbCameraPlus className="tw-w-8 tw-z-10 tw-h-8 tw-absolute tw-top-[45px] tw-left-[45px] tw-text-gray-100" />
         </div>
-        <input
-          id="profilePic"
-          className="tw-hidden"
-          type="file"
-          accept="image/*"
-          onChange={handleFileChange}
+        <Controller
+          name="imageUrl"
+          control={methods.control}
+          render={({ field: { onChange } }) => (
+            <input
+              id="profilePic"
+              className="tw-hidden"
+              type="file"
+              name="file"
+              accept="image/*"
+              onChange={(e) => {handleFileChange(e,onChange);}}
+              disabled
+            />
+          )}
         />
       </label>
     </div>
@@ -78,9 +94,10 @@ export const ProfileSettings = ({ user }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
-  //Handles Update to profile infromation 
+  //Handles Update to profile infromation
   const handleOnUpdate = methods.handleSubmit(async (data) => {
-    await UserService.updateUser(data)
+    const upData = await updateImage(data)
+    await UserService.updateUser(upData)
       .then(() => {
         methods.reset(data);
         //indicates that info is saved

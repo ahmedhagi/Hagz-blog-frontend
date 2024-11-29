@@ -11,15 +11,19 @@ const Profile = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   const { username } = useParams();
+  const pageSize = 9;
+  const [offset,setOffset] = useState(0);
+  const [totalPages,setTotalPages]=useState(0);
+  const [totalResults,setTotalResults] = useState(0);
 
   //Gets Users posts
   useEffect(() => {
-    PostService.getPostsByUsername(username).then(
+    PostService.getPostsByUsername(username,offset,pageSize).then(
       (response) => {
-        const tp = response;
-        //sorts posts by oldest
-        const sp = sortedPosts(tp);
-        setPosts(sp);
+        const tp = response.content;
+        setTotalPages(response.totalPages);
+        setTotalResults(response.totalElements)
+        setPosts(tp);
         //loading is set to false
         setIsLoading(false)
         
@@ -36,15 +40,9 @@ const Profile = () => {
       }
     );
     
-  }, [username]);
+  }, [username,offset]);
 
-  //function that sets posts to oldest to newests
-  function sortedPosts(tp)  {  
-   return [...tp].sort((a,b) => {
-    return new Date(a.createdOn).getTime() - 
-        new Date(b.createdOn).getTime()
-  }).reverse();
-}
+  
 
   return (
     <>
@@ -56,7 +54,11 @@ const Profile = () => {
         mParagraph={"See all posts by "  + username.charAt(0).toUpperCase() + username.slice(1)  }
         posts={posts}
         profile={true}
-        showResults={true}   
+        showResults={true}
+        offset={offset}
+        setOffset={setOffset}
+        totalPages={totalPages}
+        totalResults={totalResults} 
       />
       )
     }

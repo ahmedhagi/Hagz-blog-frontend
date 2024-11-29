@@ -7,6 +7,7 @@ import { CommentEntry } from "./CommentEntry";
 import { deleteComment } from "../../actions/comment";
 import { useDispatch } from "react-redux";
 import UserService from "../../services/user.services";
+import { Image } from "../elements/Image";
 
 //Comment Card to be viewed in list of comments
 export const CommentCard = ({ comment }) => {
@@ -59,15 +60,11 @@ export const CommentCard = ({ comment }) => {
                 to={`/profile/${comment.username}`}
                 className="comment-user tw-flex"
               >
-                <img
+                <Image
+                  imageUrl={user.imageUrl}
+                  defaultUrl={require("../../resources/images/defaultProfilePic.png")}
                   className="tw-object-cover tw-w-8 tw-h-8 tw-rounded-full tw-mr-2"
-                  alt=""
-                  src={`${
-                    user.imageURL
-                      ? user.imageURL
-                      : require("../../resources/images/defaultProfilePic.png")
-                  }`}
-                ></img>
+                />
                 <span className="tw-self-center">{comment.username}</span>
               </Link>
               <span class="middle-dot">·</span>

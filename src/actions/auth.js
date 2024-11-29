@@ -9,6 +9,7 @@ import {
 
 import AuthService from "../services/auth.services";
 
+
 //Register Action
 export const register = (username, email, password) => (dispatch) => {
   return AuthService.register(username, email, password).then(

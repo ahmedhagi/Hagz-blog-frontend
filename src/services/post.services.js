@@ -10,6 +10,15 @@ const getPostsContent = () => {
   return axios.get(API_URL + "all");
 };
 
+const getPostswithPagination = (offset,pageSize) => {
+  return axios
+  .get(API_URL + "get/pagination/" + offset + "/" + pageSize + "/")
+  .then((response) => {
+    return response.data;
+  });
+
+};
+
 const getPost = (id) => {
   return axios
     .get(API_URL + "get/" + id)
@@ -18,25 +27,25 @@ const getPost = (id) => {
     });
 };
 
-const getPostsByUsername = (username) => {
+const getPostsByUsername = (username,offset,pageSize) => {
   return axios
-    .get(API_URL + "get/username/" + username)
+    .get(API_URL + "get/username/" + offset + "/" + pageSize + "/" + username)
     .then((response) => {
       return response.data;
     });
 };
 
-const getPostsByTopic = (topic) => {
+const getPostsByTopic = (topic,offset,pageSize) => {
   return axios
-    .get(API_URL + "get/topic/" + topic)
+    .get(API_URL + "get/topic/" + offset + "/" + pageSize + "/"  + topic)
     .then((response) => {
       return response.data;
     });
 };
 
-const getPostsByTag = (tag) => {
+const getPostsByTag = (tag ,offset,pageSize) => {
   return axios
-    .get(API_URL + "get/tag/" + tag)
+    .get(API_URL + "get/tag/" + offset + "/" + pageSize + "/" + tag)
     .then((response) => {
       return response.data;
     })
@@ -92,5 +101,6 @@ export default {
   deletePost,
   updatePost,
   getPostsByUsername,
-  getPostsByTag
+  getPostsByTag,
+  getPostswithPagination
 };

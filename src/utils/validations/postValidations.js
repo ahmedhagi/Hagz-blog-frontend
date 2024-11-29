@@ -1,11 +1,36 @@
 import * as yup from "yup";
 
+const MAX_FILE_SIZE = 2500000; //2.5MB
+
+const validFileExtensions = { image: ['jpg', 'png', 'svg'] };
+
+export function isValidFileType(file) {
+  for ( const index in validFileExtensions.image ){
+    const ext = "image/" + validFileExtensions.image[index]
+    if (ext === file.type){
+      return true;
+    }
+  }
+ console.log(file)
+  return false;
+}
+
+export function isValidFileSize(file){
+  const size = file.size
+  const value = file && (size <= MAX_FILE_SIZE)
+  return value;
+}
 
 export const schema = yup.object().shape({
     shortDesc: yup.string().required("Short Description was not entered").max(200, 'Exceeded 200-character limit'),
     title: yup.string().required("Title was not entered"),
     content: yup.string().required("Post field is empty"),
     topic: yup.mixed().required("Topic Required"),
+    imageUrl: yup.mixed()
+      .test("is-valid-type", "Not a valid image type",
+        (file) =>  isValidFileType(file))
+      .test("is-valid-size", "Max allowed size is 2.5MB",
+        (file) => isValidFileSize(file) )
            
   });
 

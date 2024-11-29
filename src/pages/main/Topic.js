@@ -10,16 +10,21 @@ import "../../resources/css/Home.css";
 const Topic = () => {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true)
+  const pageSize = 9;
+  const [offset,setOffset] = useState(0);
+  const [totalPages,setTotalPages]=useState(0);
+  const [totalResults,setTotalResults] = useState(0);
 
   const { topic } = useParams();
 
   //Gets posts by Topic
   useEffect(() => {
-    PostService.getPostsByTopic(topic).then(
+    PostService.getPostsByTopic(topic,offset,pageSize).then(
       (response) => {
-        const tp = response;
-        const sp = sortedPosts(tp);
-        setPosts(sp);
+        const tp = response.content;
+        setTotalPages(response.totalPages);
+        setTotalResults(response.totalElements)
+        setPosts(tp);
         setIsLoading(false)
         
       },
@@ -34,15 +39,8 @@ const Topic = () => {
       }
     );
     
-  }, [topic]);
+  }, [topic,offset]);
 
-  //sorts posts by oldest to newest
-  function sortedPosts(tp)  {  
-   return [...tp].sort((a,b) => {
-    return new Date(a.createdOn).getTime() - 
-        new Date(b.createdOn).getTime()
-  }).reverse();
-}
 
   return (
     <>
@@ -55,6 +53,10 @@ const Topic = () => {
       posts={posts}
       showPostBtn={true}
       showResults={true}
+      offset={offset}
+      setOffset={setOffset}
+      totalPages={totalPages}
+      totalResults={totalResults}  
     />
       )
     }

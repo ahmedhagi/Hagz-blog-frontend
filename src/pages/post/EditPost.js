@@ -9,6 +9,7 @@ import { InputError } from "../../components/elements/Input.js";
 import PostEntry from "../../components/post/PostEntry.js";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../../utils/validations/postValidations.js";
+import { updateImage } from "../../utils/hooks/updateImage.js";
 import "../../resources/css/EditPost.css";
 
 //Edited Post Page
@@ -59,7 +60,8 @@ const EditPost = (props) => {
 
   //Handle Update to a Post
   const handleOnUpdate = methods.handleSubmit(async (data) => {
-    const upData = updatedData(data);
+    const changedData = updatedData(data);
+    const upData = updateImage(changedData);
     await dispatch(updatePost(post.id, upData))
       .then(() => {
         //Navigate to updated post

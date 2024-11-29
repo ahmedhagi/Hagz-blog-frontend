@@ -87,18 +87,19 @@ function PostPage() {
           {post === null ? (
             <Error />
           ) : (
-            <div className="tw-flex">
+            <div className="tw-flex tw-relative">
               <PostSideBar />
               <div
                 className="
               tw-grid
-              tw-grid-flow-dense 
+              tw-w-full
               tw-gap-3
               tw-grid-cols-1
               tw-grid-rows-[1fr,auto,auto]
               xl:tw-grid-rows-[1fr,auto]
-              xl:tw-grid-cols-[minmax(0,1fr),350px]
+              xl:tw-grid-cols-[minmax(0,1fr),410px]
               tw-p-3
+              tw-pt-5
               
               "
               >

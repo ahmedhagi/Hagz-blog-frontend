@@ -1,19 +1,23 @@
 import { Link, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import UserService from "../../services/user.services";
+import { Image } from "../elements/Image";
+
+
 
 //Provide Profile Link in SideBar
 export const ProfileLink = () => {
   const { user: currentUser } = useSelector((state) => state.auth);
   const [user, setUser] = useState([]);
-
+  const dispatch = useDispatch();
   const location = useLocation();
 
   //gets User info
   useEffect(() => {
+    async function fetchData() {
     if (currentUser) {
-      UserService.getUser(currentUser.username).then(
+      await UserService.getUser(currentUser.username).then(
         (response) => {
           setUser(response.data);
         },
@@ -27,28 +31,27 @@ export const ProfileLink = () => {
         }
       );
     }
+ 
+}
+fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, []); 
 
   return (
     <div>
       {currentUser && (
-        <div className="xl:tw-px-3 max-xl:tw-mb-3">
+        <div className="xl:tw-px-3 xl:tw-pt-3 max-xl:tw-mb-3">
           <h4 className="tw-text-lg tw-font-bold tw-m-0 tw-my-2">Profile</h4>
           <Link
             className="tw-flex tw-items-center tw-no-underline visted:tw-text-black"
             reloadDocument
             to={"/profile/" + user.username}
           >
-            <img
-              className="tw-object-cover tw-w-8 tw-h-8 tw-rounded-full tw-mr-2"
-              alt=""
-              src={`${
-                user.imageURL
-                  ? user.imageURL
-                  : require("../../resources/images/defaultProfilePic.png")
-              }`}
-            ></img>
+            <Image
+                imageUrl={user.imageUrl}
+                defaultUrl={require("../../resources/images/defaultProfilePic.png")}
+                 className="tw-object-cover tw-w-8 tw-h-8 tw-rounded-full tw-mr-2"
+            />
             <p className="tw-m-0 tw-font-bold tw-text-black hover:tw-text-blue-700">
               {user.username}
             </p>

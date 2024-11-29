@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import UserService from "../../services/user.services";
 import { Link, useParams } from "react-router-dom";
+import { Image } from "../elements/Image";
 
 //Profile Header for Profile Page
 export default function ProfileHeader() {
@@ -29,15 +30,11 @@ export default function ProfileHeader() {
   return (
     <div className="tw-mt-9">
       <div className="tw-flex tw-mb-4">
-        <img
+        <Image
+          imageUrl={user.imageUrl}
+          defaultUrl={require("../../resources/images/defaultProfilePic.png")}
           className="tw-object-cover tw-w-36 tw-h-36 tw-rounded-full tw-mr-2"
-          alt=""
-          src={`${
-            user.imageURL
-              ? user.imageURL
-              : require("../../resources/images/defaultProfilePic.png")
-          }`}
-        ></img>
+        />
         <h2 className=" tw-m-0 tw-pb-1 tw-capitalize tw-text-4xl tw-font-extrabold tw-self-end">
           {user.username}
         </h2>

@@ -6,10 +6,12 @@ import PostEntry from "../../components/post/PostEntry";
 import { useForm } from "react-hook-form";
 import { InputError } from "../../components/elements/Input.js";
 
+
 import "../../resources/css/EditPost.css";
 import Error from "../error/Error";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../../utils/validations/postValidations";
+import { updateImage } from "../../utils/hooks/updateImage";
 
 //New Post Page
 const NewPost = (props) => {
@@ -25,7 +27,8 @@ const NewPost = (props) => {
 
   //Publishes Post
   const handleOnPost = methods.handleSubmit(async (data) => {
-    await dispatch(createPost(data))
+    const upData = await updateImage(data)
+    await dispatch(createPost(upData))
       .then(() => {
         //reset form
         methods.reset();

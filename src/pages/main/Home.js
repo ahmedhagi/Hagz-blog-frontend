@@ -6,15 +6,21 @@ import { MainHub } from "../../components/main/MainHub";
 const Home = () => {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true)
+  const pageSize = 9;
+  const [offset,setOffset] = useState(0);
+  const [totalPages,setTotalPages]=useState(0);
+  const [totalResults,setTotalResults] = useState(0);
 
   const dispatch = useDispatch();
   
   //Gets All Posts
   useEffect(  ()  => {
-     PostService.getPostsContent().then(
+     PostService.getPostswithPagination(offset,pageSize).then(
       (response) => {
-        const posts = response.data;
-        setPosts(sortedPosts(posts));
+        const tp = response.content;
+        setTotalPages(response.totalPages);
+        setTotalResults(response.totalElements)
+        setPosts(tp);
         setIsLoading(false)
       },
       (error) => {
@@ -26,16 +32,7 @@ const Home = () => {
         setIsLoading(false)
       }
     );
-  }, [dispatch]);
-
-  //sorts posts by oldest to newest
-  function sortedPosts(posts)  {  
-        return [...posts].sort((a,b) => {
-        return new Date(a.createdOn).getTime() - 
-            new Date(b.createdOn).getTime()
-      }).reverse();
-  }
-
+  }, [dispatch,offset]);
   
 
   return (
@@ -46,7 +43,11 @@ const Home = () => {
         mHeading={"Home"}
         mParagraph={"Welcome to Hagz!"}
         posts={posts}
-        showPostBtn={true}   
+        showPostBtn={true}
+        offset={offset}
+        setOffset={setOffset}
+        totalPages={totalPages}
+        totalResults={totalResults}    
       />
     )
    }

@@ -1,10 +1,15 @@
 
 import * as yup from "yup";
-
+import { isValidFileSize, isValidFileType } from "./postValidations";
 
 export const schema = yup.object().shape({
     bio: yup.string().max(200, 'Exceeded 200-character limit'),
-           
+    imageUrl: yup.mixed()
+      .test("is-valid-type", "Not a valid image type",
+        (file) =>  isValidFileType(file))
+      .test("is-valid-size", "Max allowed size is 2.5MB",
+        (file) => isValidFileSize(file) )
+                  
   });
 
 export const bio_validation = {

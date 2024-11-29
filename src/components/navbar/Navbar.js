@@ -10,7 +10,7 @@ import "../../resources/css/NavBar.css";
 
 const HagzNavbar = () => {
   //shows collasped sidebar
-  const [showSideBar, setSidebar] = useState(false);
+  const [showSideBar, setShowSidebar] = useState(false);
 
   const { user: currentUser } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -37,6 +37,20 @@ const HagzNavbar = () => {
       document.body.classList.remove("tw-overflow-y-hidden");
     }
   }, [showSideBar]);
+
+  //Closes Sidebar when window is large
+  function handleResize(){
+      if(window.innerWidth > 1280 && showSideBar ){
+        setShowSidebar(false);
+      } 
+    }
+
+    //Checks to exit sidebar when window is large
+  useEffect (() => {
+    window.addEventListener('resize', handleResize);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
 
   return (
     <>
@@ -85,14 +99,14 @@ const HagzNavbar = () => {
               {!showSideBar ? (
                 <button
                   className="tw-w-10 tw-h-10 tw-border-none tw-bg-white tw-flex tw-items-center tw-justify-center tw-cursor-pointer"
-                  onClick={() => setSidebar(!showSideBar)}
+                  onClick={() => setShowSidebar(!showSideBar)}
                 >
                   <RxHamburgerMenu className="tw-w-10 tw-h-10" />
                 </button>
               ) : (
                 <button
                   className="tw-w-10 tw-h-10 tw-border-none tw-cursor-pointer tw-bg-white tw-flex tw-items-center tw-justify-center"
-                  onClick={() => setSidebar(!showSideBar)}
+                  onClick={() => setShowSidebar(!showSideBar)}
                 >
                   <IoMdClose className="tw-w-10 tw-h-10" />
                 </button>

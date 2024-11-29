@@ -1,6 +1,7 @@
 import dateFormat from "dateformat";
 import ReactHtmlParser from "react-html-parser";
 import { Link } from "react-router-dom";
+import  {Image}  from "../elements/Image";
 
 //Contains the main Post Content to be shown in the Post page
 export const PostWrapper = ({
@@ -25,12 +26,11 @@ export const PostWrapper = ({
               </Link>
             </div>
             <h1 className="post-title">{post.title}</h1>
-            {post.imageURL && (
-              <img
-                className="tw-object-cover tw-mt-3 tw-mb-6 tw-w-full tw-max-w-[620px] tw-h-[380px]"
-                alt=""
-                src={`${post.imageURL}`}
-              ></img>
+            {post.imageUrl && (
+              <Image
+                  className="tw-object-cover tw-mt-3 tw-mb-6 tw-w-full tw-max-w-[620px] tw-h-[380px]"
+                  imageUrl={post.imageUrl}
+              />
             )}
             <div className="post-info tw-mb-1">
               <Link
@@ -60,6 +60,9 @@ export const PostWrapper = ({
                 ))}
               </div>
             </div>
+            <p className="tw-m-0 tw-p-0 tw-mt-3 tw-italic tw-text-lg tw-text-gray-500">
+              {post.shortDesc}
+            </p>
           </div>
 
           <div className="post-content">{ReactHtmlParser(post.content)}</div>
