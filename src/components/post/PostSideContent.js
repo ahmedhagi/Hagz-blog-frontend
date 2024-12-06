@@ -27,7 +27,7 @@ export const PostSideContent = () => {
   }, [dispatch]);
 
   return (
-    <div className="tw-ml-2 tw-p-3 max-xl:tw-col-[2] max-lg:tw-col-span-1 max-lg:tw-row-[2]">
+    <div className="tw-ml-2 tw-p-3 max-xl:tw-col-[1] max-lg:tw-col-span-1 max-lg:tw-row-[2]">
       <AboutAuthor />
       <RelatedPosts allPosts={allPosts} />
     </div>

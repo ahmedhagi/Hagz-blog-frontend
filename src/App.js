@@ -53,7 +53,7 @@ const App = () => {
     <div className="tw-flex  tw-flex-col tw-pt-0 sm:tw-pt-[56px] tw-justify-between tw-min-w-full tw-min-h-screen tw-relative">
       <HagzNavBar/>
       <div className="app tw-flex-grow tw-flex tw-min-h-screen">
-        <div className="main">
+        <div className="main tw-box-border tw-max-w-full tw-relative max-sm:tw-px-0">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />

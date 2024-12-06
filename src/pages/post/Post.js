@@ -94,7 +94,6 @@ function PostPage() {
               tw-grid
               tw-w-full
               tw-gap-3
-              tw-grid-cols-1
               tw-grid-rows-[1fr,auto,auto]
               xl:tw-grid-rows-[1fr,auto]
               xl:tw-grid-cols-[minmax(0,1fr),410px]

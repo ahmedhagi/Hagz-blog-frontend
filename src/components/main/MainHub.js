@@ -20,9 +20,9 @@ export const MainHub = ({
   return (
     <>
       {posts && posts instanceof Array ? (
-        <div className="tw-flex">
+        <div className="tw-flex  max-sm:tw-px-4 tw-max-w-fit tw-box-border max-sm:tw-mx-auto">
           <HagzSideBar />
-          <div className="tw-flex tw-flex-col tw-flex-grow tw-mb-10 max-[800px]:tw-px-4 max-[1200px]:tw-px-8 tw-px-12">
+          <div className="tw-flex tw-flex-col tw-flex-grow tw-mb-10 max-sm:tw-max-w-[100%] max-[800px]:tw-px-4 max-[1200px]:tw-px-8 max-sm:tw-px-0 tw-px-12">
             {!profile ? (
               <MainHeader heading={mHeading} paragraph={mParagraph} />
             ) : (

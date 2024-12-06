@@ -32,7 +32,7 @@ export const PostWrapper = ({
                   imageUrl={post.imageUrl}
               />
             )}
-            <div className="post-info tw-mb-1">
+            <div className="post-info tw-mb-1 max-[542px]:tw-text-sm">
               <Link
                 reloadDocument
                 to={"/profile/" + post.username}

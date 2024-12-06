@@ -55,14 +55,14 @@ const HagzNavbar = () => {
   return (
     <>
       <div className="topnav sm:tw-fixed  tw-flex-grow-0 tw-flex-shrink-0 tw-basis-auto tw-top-0 tw-left-0 tw-right-0 tw-relative tw-z-[999] tw-flex tw-items-baseline tw-border-0 tw-border-solid tw-border-b tw-border-secondary">
-        <ul className="tw-flex tw-justify-between tw-flex-grow tw-py-2 tw-px-5">
+        <ul className="tw-flex tw-justify-between tw-flex-grow tw-items-center tw-py-1 tw-px-5">
           <li className=" tw-flex tw-items-center">
-            <Link to={"/"} className="nav-logo tw-text-2xl ">
-              Hagz
+            <Link to={"/"} className="nav-logo">
+              <img src={require("../../resources/images/Hagz-Logo.png")} alt=""></img>
             </Link>
           </li>
           <div className="topnav-right tw-flex">
-            <div className="tw-hidden xl:tw-flex">
+            <div className="tw-hidden md:tw-flex">
               {currentUser ? (
                 <li>
                   <a
@@ -95,7 +95,7 @@ const HagzNavbar = () => {
               )}
             </div>
 
-            <div className="tw-mr-3 tw-justify-center tw-items-center tw-flex xl:tw-hidden">
+            <div className="tw-mr-3 tw-justify-center tw-items-center tw-flex md:tw-hidden">
               {!showSideBar ? (
                 <button
                   className="tw-w-10 tw-h-10 tw-border-none tw-bg-white tw-flex tw-items-center tw-justify-center tw-cursor-pointer"
