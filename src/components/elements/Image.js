@@ -23,7 +23,7 @@ export const Image = ({ imageUrl, defaultUrl, className }) => {
     <>
       <img
         className={className}
-        alt={defaultUrl}
+        alt=""
         src={`${imgUrl ? imgUrl : defaultUrl}`}
       />
     </>

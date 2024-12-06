@@ -650,14 +650,6 @@
         width: 100%; 
 }
 
-.tw-w-56{
-        width: 14rem; 
-}
-
-.tw-w-40{
-        width: 10rem; 
-}
-
 .tw-min-w-0{
         min-width: 0px; 
 }
@@ -682,13 +674,13 @@
         max-width: 720px; 
 }
 
-.tw-max-w-full{
-        max-width: 100%; 
-}
-
 .tw-max-w-fit{
         max-width: -moz-fit-content;
         max-width: fit-content; 
+}
+
+.tw-max-w-full{
+        max-width: 100%; 
 }
 
 .tw-flex-1{
@@ -1043,11 +1035,6 @@
         padding-bottom: 1rem; 
 }
 
-.tw-py-2\.5{
-        padding-top: 0.625rem;
-        padding-bottom: 0.625rem; 
-}
-
 .tw-pb-1{
         padding-bottom: 0.25rem; 
 }
@@ -1078,6 +1065,10 @@
 
 .tw-align-middle{
         vertical-align: middle; 
+}
+
+.tw-font-openSans{
+        font-family: Open Sans, sans-serif; 
 }
 
 .tw-font-sans{
@@ -1287,16 +1278,12 @@
 
 @media not all and (min-width: 1280px){
 
-        .max-xl\:tw-col-\[2\]{
-                grid-column: 2; 
+        .max-xl\:tw-col-\[1\]{
+                grid-column: 1; 
         }
 
         .max-xl\:tw-col-span-1{
                 grid-column: span 1 / span 1; 
-        }
-
-        .max-xl\:tw-col-\[1\]{
-                grid-column: 1; 
         }
 
         .max-xl\:tw-row-\[2\]{
@@ -1346,40 +1333,8 @@
                 margin-right: auto; 
         }
 
-        .max-sm\:tw-max-w-xl{
-                max-width: 36rem; 
-        }
-
-        .max-sm\:tw-max-w-sm{
-                max-width: 24rem; 
-        }
-
-        .max-sm\:tw-max-w-md{
-                max-width: 28rem; 
-        }
-
-        .max-sm\:tw-max-w-lg{
-                max-width: 32rem; 
-        }
-
-        .max-sm\:tw-max-w-\[90\%\]{
-                max-width: 90%; 
-        }
-
-        .max-sm\:tw-max-w-\[95\%\]{
-                max-width: 95%; 
-        }
-
-        .max-sm\:tw-max-w-\[98\%\]{
-                max-width: 98%; 
-        }
-
         .max-sm\:tw-max-w-\[100\%\]{
                 max-width: 100%; 
-        }
-
-        .max-sm\:tw-p-3{
-                padding: 0.75rem; 
         }
 
         .max-sm\:tw-px-0{
@@ -1470,14 +1425,6 @@
 
         .xl\:tw-mt-2{
                 margin-top: 0.5rem; 
-        }
-
-        .xl\:tw-flex{
-                display: flex; 
-        }
-
-        .xl\:tw-hidden{
-                display: none; 
         }
 
         .xl\:tw-w-3\/4{
