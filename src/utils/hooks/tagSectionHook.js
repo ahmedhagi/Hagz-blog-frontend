@@ -1,9 +1,26 @@
-export const selectedToTopic = (choice) => {
-    choice = JSON.parse(JSON.stringify(choice).split('"value":').join('"id":'));
-    choice = JSON.parse(JSON.stringify(choice).split('"label":').join('"name":'));      
+export const topicToTopicName= (topic) => {
+    if(topic != null && topic.name != null){
+        topic = topic.name;
+        return topic;
+    }
+
+         
 }
 
-export const selectToTags = (choice) => {
-    choice = choice.map(({value, label}) => ({id:value, name:label}));
+export const tagsToTagNames = (tags) => {
+    if(tags != null){
+        tags = tags.map((tag) => (tag.name));
+        return tags;
+    }
+    
      
+}
+
+export const handleNewPostData = (data) => {
+
+    data["topicName"] = topicToTopicName(data.topic);
+    data["tagSet"] = tagsToTagNames(data.tags);
+    delete data["topic"];
+    delete data["tags"];
+
 }

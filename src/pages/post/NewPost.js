@@ -11,7 +11,7 @@ import "../../resources/css/EditPost.css";
 import Error from "../error/Error";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../../utils/validations/postValidations";
-import { updateImage } from "../../utils/hooks/updateImage";
+import { handleNewPostData } from "../../utils/hooks/tagSectionHook";
 
 //New Post Page
 const NewPost = (props) => {
@@ -27,8 +27,9 @@ const NewPost = (props) => {
 
   //Publishes Post
   const handleOnPost = methods.handleSubmit(async (data) => {
-    const upData = await updateImage(data)
-    await dispatch(createPost(upData))
+    //const upData = await updateImage(data)
+    handleNewPostData(data);
+    await dispatch(createPost(data))
       .then(() => {
         //reset form
         methods.reset();

@@ -5,7 +5,7 @@ function SideBarContainer({children}) {
                       tw-border-0 tw-border-solid tw-border-r
                        tw-border-gray-200 tw-p-0 
                        tw-h-screen
-                       tw-overflow-auto tw-sticky tw-top-[75px] tw-max-h-[calc(100vh-100px)]">
+                       tw-overflow-auto tw-sticky tw-top-[61px] tw-max-h-[calc(100vh-61px)]">
          {children}
           
       </div>

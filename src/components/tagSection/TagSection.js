@@ -45,7 +45,7 @@ const TagSection = () => {
     //new selected topic
     const topic = methods.getValues("topic");
     //selected tags by user
-    const selected_tags = (methods.getValues("tags"))
+    const selected_tags = (methods.getValues("tag"))
     if (topic != null) {
       //set tag options and filiter out selected tags
       if(selected_tags != null){
@@ -61,7 +61,7 @@ const TagSection = () => {
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [methods.watch("topic"), methods.watch("tags")]);
+  }, [methods.watch("topic"), methods.watch("tag")]);
 
   return (
     <div>

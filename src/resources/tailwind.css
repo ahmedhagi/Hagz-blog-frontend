@@ -22,7 +22,7 @@
     }
 
     .reg-input {
-        @apply tw-p-3 tw-font-medium tw-border-solid tw-rounded-full placeholder:tw-opacity-60 tw-text-base
+        @apply tw-px-3 tw-py-3 tw-font-medium tw-border-solid tw-rounded-full placeholder:tw-opacity-60 tw-text-sm
     
     }
 

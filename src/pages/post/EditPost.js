@@ -9,7 +9,7 @@ import { InputError } from "../../components/elements/Input.js";
 import PostEntry from "../../components/post/PostEntry.js";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../../utils/validations/postValidations.js";
-import { updateImage } from "../../utils/hooks/updateImage.js";
+import { topicToTopicName, tagsToTagNames } from "../../utils/hooks/tagSectionHook";
 import "../../resources/css/EditPost.css";
 
 //Edited Post Page
@@ -50,7 +50,16 @@ const EditPost = (props) => {
     Object.entries(data).forEach(([key, value]) => {
       // eslint-disable-next-line eqeqeq
       if (value != post[key]) {
-        updateData[key] = value;
+        if(key === "topic"){
+          updateData["topicName"] = topicToTopicName(data.topic);
+   
+        }
+        else if(key === "tags"){
+          updateData["tagSet"] = tagsToTagNames(data.tags);
+        }
+        else{
+          updateData[key] = value;
+        }
       }
     });
     return updateData;
@@ -61,8 +70,8 @@ const EditPost = (props) => {
   //Handle Update to a Post
   const handleOnUpdate = methods.handleSubmit(async (data) => {
     const changedData = updatedData(data);
-    const upData = updateImage(changedData);
-    await dispatch(updatePost(post.id, upData))
+    //const upData = updateImage(changedData);
+    await dispatch(updatePost(post.id, changedData))
       .then(() => {
         //Navigate to updated post
         methods.reset();

@@ -2,82 +2,91 @@ import * as yup from "yup";
 
 const MAX_FILE_SIZE = 2500000; //2.5MB
 
-const validFileExtensions = { image: ['jpg', 'png', 'svg'] };
+const validFileExtensions = { image: ["jpg", "png", "svg"] };
 
 export function isValidFileType(file) {
-  for ( const index in validFileExtensions.image ){
-    const ext = "image/" + validFileExtensions.image[index]
-    if (ext === file.type){
+  for (const index in validFileExtensions.image) {
+    const ext = "image/" + validFileExtensions.image[index];
+    if (file == null || ext === file.type) {
       return true;
     }
   }
- console.log(file)
+  console.log(file);
   return false;
 }
 
-export function isValidFileSize(file){
-  const size = file.size
-  const value = file && (size <= MAX_FILE_SIZE)
-  return value;
+export function isValidFileSize(file) {
+  if (file) {
+    const size = file.size;
+    const value = file && size <= MAX_FILE_SIZE;
+    return value;
+  } else {
+    return true;
+  }
 }
 
 export const schema = yup.object().shape({
-    shortDesc: yup.string().required("Short Description was not entered").max(200, 'Exceeded 200-character limit'),
-    title: yup.string().required("Title was not entered"),
-    content: yup.string().required("Post field is empty"),
-    topic: yup.mixed().required("Topic Required"),
-    imageUrl: yup.mixed()
-      .test("is-valid-type", "Not a valid image type",
-        (file) =>  isValidFileType(file))
-      .test("is-valid-size", "Max allowed size is 2.5MB",
-        (file) => isValidFileSize(file) )
-           
-  });
+  shortDesc: yup
+    .string()
+    .required("Short Description was not entered")
+    .max(200, "Exceeded 200-character limit"),
+  title: yup.string().required("Title was not entered"),
+  content: yup.string().required("Post field is empty"),
+  topic: yup.mixed().required("Topic Required"),
+  imageUrl: yup
+    .mixed()
+    .test("is-valid-type", "Not a valid image type", (file) =>
+      isValidFileType(file)
+    )
+    .test("is-valid-size", "Max allowed size is 2.5MB", (file) =>
+      isValidFileSize(file)
+    )
+    .nullable(true),
+});
 
 export const title_validation = {
-    name: 'title',
-    label: 'title',
-    type: 'text',
-    id: 'title',
-    placeholder: 'Please Enter a title',
-    validation: 'title',
-    cnInput: "tw-p-2 tw-rounded-md tw-border-solid tw-w-full tw-box-border tw-max-w-[720px] tw-text-2xl tw-outline-none",
-    cnLabel: "tw-font-bold tw-text-3xl"
+  name: "title",
+  label: "title",
+  type: "text",
+  id: "title",
+  placeholder: "Please Enter a title",
+  validation: "title",
+  cnInput:
+    "tw-p-2 tw-rounded-md tw-border-solid tw-w-full tw-box-border tw-max-w-[720px] tw-text-2xl tw-outline-none",
+  cnLabel: "tw-font-bold tw-text-3xl",
+};
 
-  }
+export const shortDesc_validation = {
+  name: "shortDesc",
+  label: "Short Description",
+  type: "text",
+  id: "shortDesc",
+  placeholder: "Please add a short description",
+  validation: "shortDesc",
+  multiline: true,
+  cnInput:
+    "tw-px-2 tw-py-4 tw-rounded-md tw-border-solid tw-border-2 tw-box-border tw-font-sans tw-w-full tw-max-w-[400px] tw-text-base tw-h-[120px] tw-resize-none tw-outline-none",
 
-  export const shortDesc_validation = {
-    name: 'shortDesc',
-    label: 'Short Description',
-    type: 'text',
-    id: 'shortDesc',
-    placeholder: 'Please add a short description',
-    validation: 'shortDesc',
-    multiline: true,
-    cnInput: "tw-px-2 tw-py-4 tw-rounded-md tw-border-solid tw-border-2 tw-box-border tw-font-sans tw-w-full tw-max-w-[400px] tw-text-base tw-h-[120px] tw-resize-none tw-outline-none"
-    
-    ,
-    cnLabel: "tw-font-bold tw-text-xl"
+  cnLabel: "tw-font-bold tw-text-xl",
+};
 
-  }
-
-  export const content_validation = {
-    name: 'content',
-    label: '',
-    type: 'text',
-    id: 'content',
-    placeholder: '',
-    validation: {
-      required: {
-        value: true,
-        message: 'Post is empty',
-      },
-      maxLength: {
-        value: 3600,
-        message: 'Max Character Limit (3600))',
-      }
+export const content_validation = {
+  name: "content",
+  label: "",
+  type: "text",
+  id: "content",
+  placeholder: "",
+  validation: {
+    required: {
+      value: true,
+      message: "Post is empty",
     },
-    cnInput: "tw-p-2 tw-rounded-md tw-border-solid tw-font-sans tw-w-1/2 tw-max-w-84 tw-text-2xl tw-outline-none",
-    cnLabel: "multiline-label"
-
-  }
+    maxLength: {
+      value: 3600,
+      message: "Max Character Limit (3600))",
+    },
+  },
+  cnInput:
+    "tw-p-2 tw-rounded-md tw-border-solid tw-font-sans tw-w-1/2 tw-max-w-84 tw-text-2xl tw-outline-none",
+  cnLabel: "multiline-label",
+};

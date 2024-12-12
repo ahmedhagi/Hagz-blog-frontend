@@ -50,7 +50,7 @@ const App = () => {
  
 
   return ( 
-    <div className="tw-flex  tw-flex-col tw-pt-0 tw-font-openSans sm:tw-pt-[56px] tw-justify-between tw-min-w-full tw-min-h-screen tw-relative">
+    <div className="tw-flex  tw-flex-col tw-pt-0 tw-font-openSans sm:tw-pt-[61px] tw-justify-between tw-min-w-full tw-min-h-screen tw-relative">
       <HagzNavBar/>
       <div className="app tw-flex-grow tw-flex tw-min-h-screen">
         <div className="main tw-box-border tw-max-w-full tw-relative max-sm:tw-px-0">

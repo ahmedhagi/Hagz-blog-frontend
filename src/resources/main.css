@@ -192,9 +192,12 @@
 .reg-input{
         border-radius: 9999px;
         border-style: solid;
-        padding: 0.75rem;
-        font-size: 1rem;
-        line-height: 1.5rem;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
         font-weight: 500; 
 }
 
@@ -308,6 +311,10 @@
 
 .tw-top-\[75px\]{
         top: 75px; 
+}
+
+.tw-top-\[61px\]{
+        top: 61px; 
 }
 
 .tw-z-10{
@@ -572,6 +579,10 @@
 
 .tw-max-h-full{
         max-height: 100%; 
+}
+
+.tw-max-h-\[calc\(100vh-61px\)\]{
+        max-height: calc(100vh - 61px); 
 }
 
 .tw-min-h-full{
@@ -1380,6 +1391,10 @@
 
         .sm\:tw-pt-\[56px\]{
                 padding-top: 56px; 
+        }
+
+        .sm\:tw-pt-\[61px\]{
+                padding-top: 61px; 
         } 
 }
 
@@ -1413,6 +1428,10 @@
 
         .xl\:tw-col-\[2\]{
                 grid-column: 2; 
+        }
+
+        .xl\:tw-col-span-1{
+                grid-column: span 1 / span 1; 
         }
 
         .xl\:tw-row-\[1\/3\]{

@@ -20,7 +20,7 @@ import { fetchUser } from "../../actions/user";
 
 //Signup Form
 const SignUpForm = () => {
-  const methods = useForm({ resolver: yupResolver(schema) });
+  const methods = useForm({ resolver: yupResolver(schema), mode: "onChange" });
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
