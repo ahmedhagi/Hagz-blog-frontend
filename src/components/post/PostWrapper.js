@@ -87,7 +87,6 @@ export const PostWrapper = ({
               type="Link"
               onClick={(e) => {
                 handleDelete(e);
-                routeChange();
               }}
             >
               Delete Post

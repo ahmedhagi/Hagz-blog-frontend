@@ -51,9 +51,9 @@ function PostPage() {
   let router_navigate = useNavigate();
 
   //Delete Feature Function
-  const handleDelete = (event) => {
-    event.preventDefault();
+  const handleDelete = () => {
     dispatch(deletePost(id));
+    routeChange();
   };
 
   //Handles Upadte function
@@ -75,7 +75,7 @@ function PostPage() {
   function routeChange() {
     let path = "/home";
     router_navigate(path);
-    window.location.reload(true);
+    window.location.reload();
   }
 
   return (
