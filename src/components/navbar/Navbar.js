@@ -15,15 +15,6 @@ const HagzNavbar = () => {
   const { user: currentUser } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
-  let location = useLocation();
-
-  //clears message in the message state
-  useEffect(() => {
-    if (["/login", "/register"].includes(location.pathname)) {
-      dispatch(clearMessage()); // clear message when changing location
-    }
-  }, [dispatch, location]);
-
   //log out function
   const logOut = useCallback(() => {
     dispatch(logout());

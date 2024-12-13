@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { InputError } from "../elements";
 import { Spinner } from "../elements";
-import { fetchUser } from "../../actions/user";
+
 
 //Login Form
 const LoginForm = () => {
@@ -34,8 +34,6 @@ const LoginForm = () => {
 
     await dispatch(login(username, password))
       .then(() => {
-        //gets user info
-        dispatch(fetchUser(username));
         //goes to profile page after succesful login
         navigate("/profile/" + username);
       })

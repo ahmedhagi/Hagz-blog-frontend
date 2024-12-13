@@ -32,11 +32,16 @@ export default function RelatedPosts({ allPosts }) {
   });
 
   return (
-    <div className="tw-flex tw-flex-col tw-shadow-md tw-rounded-md tw-p-3">
+    <>
+    {
+    sortedPosts.length > 0 &&
+    (<div className="tw-flex tw-flex-col tw-shadow-md tw-rounded-md tw-p-3">
       <p className="tw-my-3 tw-font-bold tw-text-lg">Related Posts</p>
       {sortedPosts.slice(0, maxPosts).map((post, i) => (
         <PostPreview key={i} postData={post} />
       ))}
-    </div>
+    </div>)
+}
+    </>
   );
 }

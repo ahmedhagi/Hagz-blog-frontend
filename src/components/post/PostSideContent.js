@@ -5,15 +5,17 @@ import RelatedPosts from "./RelatedPosts";
 import { AboutAuthor } from "./AboutAuthor";
 
 //RightSide Post Content that user can interact with
-export const PostSideContent = () => {
+export const PostSideContent = ({postTopic}) => {
   const [allPosts, setAllPosts] = useState([]);
   const dispatch = useDispatch();
 
   //Gets all posts for the AboutAuthor component
   useEffect(() => {
-    PostService.getPostsContent().then(
+    const offset = 0;
+    const pageSize = 6;
+    PostService.getPostsByTopic(postTopic,offset,pageSize).then(
       (response) => {
-        const posts = response.data;
+        const posts = response.content;
         setAllPosts(posts);
       },
       (error) => {

@@ -110,7 +110,7 @@ function PostPage() {
                   handleUpdate={handleUpdate}
                   routeChange={routeChange}
                 />
-                <PostSideContent />
+                <PostSideContent postTopic={post.topic.name}/>
                 <CommentWrapper />
               </div>
             </div>

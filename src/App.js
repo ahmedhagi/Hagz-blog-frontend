@@ -27,15 +27,17 @@ import { Settings } from "./pages/settings/Settings";
 const App = () => {
   
   const { post } = useSelector((state) => state.post);
+  const { message } = useSelector((state) => state.message);
   const dispatch = useDispatch();
 
   let location = useLocation();
   
 
   useEffect(() => {
-    if (["/login", "/register"].includes(location.pathname)) {
+    if ((!["/login", "/register"].includes(location.pathname)) && message) {
       dispatch(clearMessage()); // clear message when changing location
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, location]);
 
   useEffect(() => {

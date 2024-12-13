@@ -10,6 +10,7 @@ import Header from "../../components/elements/FormHeader";
 const Login = () => {
   const { isLoggedIn } = useSelector((state) => state.auth);
   const { user: currentUser } = useSelector((state) => state.auth);
+  const { message } = useSelector((state) => state.message);
 
   //navigate to profile if logged in
   if (isLoggedIn) {
@@ -17,7 +18,15 @@ const Login = () => {
   }
 
   return (
-    <div className="login-container">
+    <div className="login-container tw-flex-col">
+      {
+        message && 
+        (
+          <div className="tw-mt-2 tw-p-3 tw-text-sm tw-bg-green-100 tw-border-solid tw-border-0 tw-border-l-4 tw-w-[350px] tw-border-green-500 tw-text-green-700`">
+            <p>{message}</p>
+          </div>
+        )
+      }
       <div className="login-form tw-my-3 tw-mb-10">
         <Header
           heading="Welcome Back!"

@@ -11,15 +11,6 @@ export const CollapseSidebar = () => {
   const { user: currentUser } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
-  let location = useLocation();
-
-  //clears message in message state when going to those pages
-  useEffect(() => {
-    if (["/login", "/register"].includes(location.pathname)) {
-      dispatch(clearMessage()); // clear message when changing location
-    }
-  }, [dispatch, location]);
-
   //log out function
   const logOut = useCallback(() => {
     dispatch(logout());
