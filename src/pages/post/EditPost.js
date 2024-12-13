@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updatePost } from "../../actions/post.js";
 import { useNavigate, useParams } from "react-router-dom";
@@ -24,23 +24,27 @@ const EditPost = (props) => {
   //react hook form has default value from post state
   const methods = useForm({
     resolver: yupResolver(schema),
-    defaultValues: post,
+    defaultValues:  useMemo(() => {
+      console.log("Post has changed");
+      return post;
+    }, [post]),
+    mode: "onChange"
   });
 
   const dispatch = useDispatch();
 
-  //Get post if post is currently null
+  //Get posts
   useEffect(() => {
-    if (post == null) {
-      function fetchData() {
-        try {
-          dispatch(fetchPost(id));
-        } catch (error) {
-          setError(true);
-        }
+   
+    function fetchData() {
+      try {
+        dispatch(fetchPost(id));
+      } catch (error) {
+        setError(true);
       }
-      fetchData();
     }
+    fetchData();
+  
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -48,14 +52,15 @@ const EditPost = (props) => {
   function updatedData(data) {
     let updateData = {};
     Object.entries(data).forEach(([key, value]) => {
-      // eslint-disable-next-line eqeqeq
-      if (value != post[key]) {
+      if (value !== post[key]) {
         if(key === "topic"){
           updateData["topicName"] = topicToTopicName(data.topic);
+          delete updateData["topic"]
    
         }
         else if(key === "tags"){
           updateData["tagSet"] = tagsToTagNames(data.tags);
+          delete updateData["topic"]
         }
         else{
           updateData[key] = value;

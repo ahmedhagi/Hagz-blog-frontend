@@ -22,7 +22,7 @@ const PostEntry = ({ methods }) => {
       methods.reset(post);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [methods.reset]);
+  }, [post]);
 
 
   return (

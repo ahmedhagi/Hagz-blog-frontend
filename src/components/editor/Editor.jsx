@@ -221,6 +221,7 @@ const Editor = ({ onChange, intialValue }) => {
   useEffect(() => {
     if ((editor != null) & (post != null)) {
       editor.commands.setContent(post.content);
+      onChange(post.content);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [editor, post]);
