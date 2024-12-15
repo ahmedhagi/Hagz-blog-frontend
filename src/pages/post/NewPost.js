@@ -57,7 +57,7 @@ const NewPost = (props) => {
   //Navigate to post after post is published
   useEffect(() => {
     if (post) {
-      navigate("/post/" + post.id);
+      navigate("/post/" + post.id + "/" + post.slug);
     }
   }, [navigate, post]);
 

@@ -51,9 +51,10 @@ function PostPage() {
   let router_navigate = useNavigate();
 
   //Delete Feature Function
-  const handleDelete = () => {
-    dispatch(deletePost(id));
-    routeChange();
+  const handleDelete = async () => {
+    await dispatch(deletePost(id)).then(() => {
+      routeChange();
+    });
   };
 
   //Handles Upadte function
@@ -110,7 +111,7 @@ function PostPage() {
                   handleUpdate={handleUpdate}
                   routeChange={routeChange}
                 />
-                <PostSideContent postTopic={post.topic.name}/>
+                <PostSideContent postTopic={post.topic.name} />
                 <CommentWrapper />
               </div>
             </div>
