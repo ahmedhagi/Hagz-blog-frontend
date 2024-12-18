@@ -39,6 +39,7 @@ export const CommentCard = ({ comment }) => {
 
   //delete comment from post
   const handleDelete = () => {
+  
     dispatch(deleteComment(comment.id));
   };
 

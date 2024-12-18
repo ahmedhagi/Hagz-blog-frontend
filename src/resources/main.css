@@ -309,10 +309,6 @@
         top: 57px; 
 }
 
-.tw-top-\[75px\]{
-        top: 75px; 
-}
-
 .tw-top-\[61px\]{
         top: 61px; 
 }
@@ -569,20 +565,16 @@
         max-height: 14rem; 
 }
 
-.tw-max-h-\[calc\(100vh-100px\)\]{
-        max-height: calc(100vh - 100px); 
-}
-
 .tw-max-h-\[calc\(100vh-20px\)\]{
         max-height: calc(100vh - 20px); 
 }
 
-.tw-max-h-full{
-        max-height: 100%; 
-}
-
 .tw-max-h-\[calc\(100vh-61px\)\]{
         max-height: calc(100vh - 61px); 
+}
+
+.tw-max-h-full{
+        max-height: 100%; 
 }
 
 .tw-min-h-full{
@@ -1389,10 +1381,6 @@
                 flex-direction: row; 
         }
 
-        .sm\:tw-pt-\[56px\]{
-                padding-top: 56px; 
-        }
-
         .sm\:tw-pt-\[61px\]{
                 padding-top: 61px; 
         } 
@@ -1428,10 +1416,6 @@
 
         .xl\:tw-col-\[2\]{
                 grid-column: 2; 
-        }
-
-        .xl\:tw-col-span-1{
-                grid-column: span 1 / span 1; 
         }
 
         .xl\:tw-row-\[1\/3\]{

@@ -5,6 +5,7 @@ import { useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
 import { useEffect } from "react";
+import { useFormContext } from "react-hook-form";
 
 import {
   FaBold,
@@ -149,6 +150,8 @@ const CommentEditor = ({ commentContent, onChange, intialValue }) => {
     },
   });
 
+  const methods = useFormContext();
+
   useEffect(() => {
     if (editor != null) {
       editor.commands.setContent(commentContent);
@@ -156,6 +159,14 @@ const CommentEditor = ({ commentContent, onChange, intialValue }) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [editor]);
+
+  useEffect(() => {
+    if(methods.formState.isSubmitSuccessful){
+    editor?.commands.clearContent();
+    }
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[methods.formState.isSubmitSuccessful])
 
   return (
     <div className="comment-editor">
