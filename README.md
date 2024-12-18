@@ -23,7 +23,7 @@ Open [https://localhost:3000](https://localhost:3000) to view it in your browser
 
 ### Viewing Posts and Comments
 
-<video src='https://github.com/ahmedhagi/Hagz-blog-frontend/blob/main/Hagz-Blog-Vids/ViewingPosts.mov' width=180/>
+https://github.com/user-attachments/assets/3fbb8b0d-7cdb-4039-9d33-d8e3425ad7cc
 
 Posts are viewed by navigating to the home or the other topic tabs available on the sidebar of the application. These pages will then present the posts in card format with a pagination row at the bottom of the page to allow the user to cycle through the list of posts. Posts are accessed by either clicking the photo or title of the postcard, which will take the user to the post page.
 
@@ -31,7 +31,7 @@ On the post page the user is able to read the post in its entirety. If a post co
 
 ### Signing up and Logging in
 
-<video src='https://github.com/ahmedhagi/Hagz-blog-frontend/blob/main/Hagz-Blog-Vids/SignupAndLogin.mov' width=180/>
+https://github.com/user-attachments/assets/0279f0c3-e1a9-4297-ab57-8571a5884c1f
 
 To sign up for an account, click the signup button on the top right of the page to then access the signup page. To create the account, you must fill out the signup form and note that the password must contain 8 characters, one uppercase letter, one lowercase letter, one number, and one special case character. After creating an account, the user will then be automatically logged in.
 
@@ -39,7 +39,7 @@ To log in, click the login button on the top right of the page and then access t
 
 ### Creating a Post
 
-<video src='https://github.com/ahmedhagi/Hagz-blog-frontend/blob/main/Hagz-Blog-Vids/CreatePost.mov' width=180/>
+https://github.com/user-attachments/assets/ea100384-c79d-4ac6-84f6-ab9c5a388e98
 
 To create a post, the user must be logged in first. Navigate to the user profile page by clicking the username on the sidebar to access the profile page. On the profile page there will be a create post button under the user information. By clicking the button, it will take the user to the create post page. 
 
@@ -47,17 +47,15 @@ To successfully create a post, the user must fill out the create post form. The 
 
 ### Editing and Deleting a Post 
 
-<video src='https://github.com/ahmedhagi/Hagz-blog-frontend/blob/main/Hagz-Blog-Vids/UpdateAndDeletePost.mov' width=180/>
+https://github.com/user-attachments/assets/bda6ee8d-62d9-452c-8a01-425553951b3d
 
 To edit or delete a post, the user must access the specific post and click on either the "edit post" link or the "delete post" link. The "edit post" link will take you to the create post form with all the previous data populated. Please note that editing the header image is not available currently and will be updated in a future version.
 
-
 ### Adding/Editing/Deleting a Comment
 
-<video src='https://github.com/ahmedhagi/Hagz-blog-frontend/blob/main/Hagz-Blog-Vids/AddingComments.mov' width=180/>
+https://github.com/user-attachments/assets/50ce1a61-b237-4424-a21f-a6b5d357b8bb
 
 To add a comment, the user must be logged in first. The user views the specific post they wish to comment on and scrolls down to the comment section. There will be a text editor where the user can then write out their comment and publish it to the post by clicking the comment button. 
-
 
 Comments can then be edited and deleted by clicking either the "edit" link or the "delete" link on the comment.
 
