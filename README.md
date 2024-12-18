@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# Hagz Blogging Front-end Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://hagz-blog.vercel.app/
 
-## Available Scripts
+## Description
+This is the front-end side of the Hagz Blog website. 
 
-In the project directory, you can run:
+This application allows the user to view posts created by other users on a variety of different topics and tags. Users are able to create, edit, and delete posts by signing up and logging into their account. The application allows other users to comment on posts to engage with the community. Please refer to the usage section for a more detailed explanation of the usages of the application. 
 
-### `npm start`
+This application is built utilizing the React framework and React Redux and React Hook Form libraries.The application's user interface is styled using Tailwind CSS. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The application can be accessed at https://hagz-blog.vercel.app/.
 
-### `npm test`
+The application can also be run locally by running this script in the project's directory.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `npm run dev-start`
 
-### `npm run build`
+Open [https://localhost:3000](https://localhost:3000) to view it in your browser.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Usage
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Viewing Posts and Comments
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<video src='https://github.com/ahmedhagi/Hagz-blog-frontend/blob/main/Hagz-Blog-Vids/ViewingPosts.mov' width=180/>
 
-### `npm run eject`
+Posts are viewed by navigating to the home or the other topic tabs available on the sidebar of the application. These pages will then present the posts in card format with a pagination row at the bottom of the page to allow the user to cycle through the list of posts. Posts are accessed by either clicking the photo or title of the postcard, which will take the user to the post page.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+On the post page the user is able to read the post in its entirety. If a post contains headings, there will be a table of contents located on the sidebar that allows the user to access the specific headings indicated in the post. On the left side of the page there is additional information about the author and related posts that the user can access. Comments on a post are located on the bottom of the page.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Signing up and Logging in
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<video src='https://github.com/ahmedhagi/Hagz-blog-frontend/blob/main/Hagz-Blog-Vids/SignupAndLogin.mov' width=180/>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+To sign up for an account, click the signup button on the top right of the page to then access the signup page. To create the account, you must fill out the signup form and note that the password must contain 8 characters, one uppercase letter, one lowercase letter, one number, and one special case character. After creating an account, the user will then be automatically logged in.
 
-## Learn More
+To log in, click the login button on the top right of the page and then access the login page. To log into the account, you must fill out the login form.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Creating a Post
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<video src='https://github.com/ahmedhagi/Hagz-blog-frontend/blob/main/Hagz-Blog-Vids/CreatePost.mov' width=180/>
 
-### Code Splitting
+To create a post, the user must be logged in first. Navigate to the user profile page by clicking the username on the sidebar to access the profile page. On the profile page there will be a create post button under the user information. By clicking the button, it will take the user to the create post page. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+To successfully create a post, the user must fill out the create post form. The user must include a title, topic, short description, and content in the text editor area. Please note that editing the header image is not available currently and will be updated in a future version. 
 
-### Analyzing the Bundle Size
+### Editing and Deleting a Post 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<video src='https://github.com/ahmedhagi/Hagz-blog-frontend/blob/main/Hagz-Blog-Vids/UpdateAndDeletePost.mov' width=180/>
 
-### Making a Progressive Web App
+To edit or delete a post, the user must access the specific post and click on either the "edit post" link or the "delete post" link. The "edit post" link will take you to the create post form with all the previous data populated. Please note that editing the header image is not available currently and will be updated in a future version.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+### Adding/Editing/Deleting a Comment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<video src='https://github.com/ahmedhagi/Hagz-blog-frontend/blob/main/Hagz-Blog-Vids/AddingComments.mov' width=180/>
 
-### Deployment
+To add a comment, the user must be logged in first. The user views the specific post they wish to comment on and scrolls down to the comment section. There will be a text editor where the user can then write out their comment and publish it to the post by clicking the comment button. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+Comments can then be edited and deleted by clicking either the "edit" link or the "delete" link on the comment.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first. 
+To discuss what you would like to change.
+
+## License
+
+Distributed under the Unlicense License. See LICENSE.txt for more information. 
