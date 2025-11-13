@@ -60,13 +60,13 @@ export const CommentEntry = ({ postID, commentID, comment, edit, setEdit }) => {
           {edit === true ? (
             <>
               <button
-                class="primary-btn tw-px-3 tw-py-1 tw-text-base  tw-mb-3"
+                className="primary-btn tw-px-3 tw-py-1 tw-text-base  tw-mb-3"
                 onClick={(e) => handleUpdate(e)}
               >
                 Update
               </button>
               <button
-                class="primary-btn tw-px-3 tw-py-1 tw-text-base tw-ml-2 tw-mb-3"
+                className="primary-btn tw-px-3 tw-py-1 tw-text-base tw-ml-2 tw-mb-3"
                 onClick={() => {
                   setEdit(false);
                 }}
@@ -76,7 +76,7 @@ export const CommentEntry = ({ postID, commentID, comment, edit, setEdit }) => {
             </>
           ) : (
             <button
-              class="primary-btn tw-px-4 tw-py-2 tw-text-base  tw-mb-3"
+              className="primary-btn tw-px-4 tw-py-2 tw-text-base  tw-mb-3"
               onClick={(e) => handleSubmit(e)}
             >
               Comment

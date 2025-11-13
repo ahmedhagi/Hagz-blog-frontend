@@ -35,10 +35,10 @@ export default function CommentSection(props) {
 
   return (
     <div className="tw-container">
-      <div class="num-comments">{comments ? comments.length : 0} comments</div>
+      <div className="num-comments">{comments ? comments.length : 0} comments</div>
       <hr />
-      <div class="comments">
-        <ul class="comment-list">
+      <div className="comments">
+        <ul className="comment-list">
           {
             comments &&
             // eslint-disable-next-line eqeqeq

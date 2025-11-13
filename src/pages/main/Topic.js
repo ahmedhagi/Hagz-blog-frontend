@@ -19,7 +19,8 @@ const Topic = () => {
 
   //Gets posts by Topic
   useEffect(() => {
-    PostService.getPostsByTopic(topic,offset,pageSize).then(
+    const topicName = topic;
+    PostService.getPostswithPagination(offset,pageSize,{topicName:topicName}).then(
       (response) => {
         const tp = response.content;
         setTotalPages(response.totalPages);

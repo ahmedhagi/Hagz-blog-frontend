@@ -24,10 +24,10 @@ const PostCard = ({ post }) => {
           </div>
           <div className="tw-px-2">
             <Link
-              to={`/topic/${post.topic.name}`}
+              to={`/topic/${post.topicName}`}
               className="tw-no-underline tw-text-gray-700 tw-font-semibold hover:tw-text-blue-700 "
             >
-              {post.topic.name}
+              {post.topicName}
             </Link>
             <Link
               reloadDocument
@@ -47,7 +47,7 @@ const PostCard = ({ post }) => {
             </p>
             <p className="tw-block tw-font-light tw-mb-2">
               {" "}
-              {post.comments.length} Comments{" "}
+              {post.commentsCount} Comments{" "}
             </p>
           </div>
         </div>

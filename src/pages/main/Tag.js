@@ -17,7 +17,8 @@ const Tag = () => {
 
   //Gets posts by tag
   useEffect(() => {
-    PostService.getPostsByTag(tag,offset,pageSize).then(
+    const tagName = tag;
+    PostService.getPostswithPagination(offset,pageSize,{tagName:tagName}).then(
       (response) => {
         const tp = response.content;
         setTotalPages(response.totalPages);

@@ -72,7 +72,7 @@ export default function foo(state = initialState, action) {
         createpostError: payload,
       };
 
-    //Delete a Post
+    //Updates a Post
     case UPDATE_POST_REQUEST:
       return { ...state, updatePostInProgress: true, updateePostError: null };
     case UPDATE_POST_SUCCESS:

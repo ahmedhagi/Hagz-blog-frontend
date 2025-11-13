@@ -15,7 +15,7 @@ const Home = () => {
   
   //Gets All Posts
   useEffect(  ()  => {
-     PostService.getPostswithPagination(offset,pageSize).then(
+     PostService.getPostswithPagination(offset,pageSize,{}).then(
       (response) => {
         const tp = response.content;
         setTotalPages(response.totalPages);

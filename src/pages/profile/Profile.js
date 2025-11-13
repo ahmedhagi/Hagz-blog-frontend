@@ -18,7 +18,7 @@ const Profile = () => {
 
   //Gets Users posts
   useEffect(() => {
-    PostService.getPostsByUsername(username,offset,pageSize).then(
+    PostService.getPostswithPagination(offset,pageSize, {username:username}).then(
       (response) => {
         const tp = response.content;
         setTotalPages(response.totalPages);

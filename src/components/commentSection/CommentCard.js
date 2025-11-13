@@ -55,8 +55,8 @@ export const CommentCard = ({ comment }) => {
             setEdit={setEdit}
           />
         ) : (
-          <li class="comment">
-            <div class="comment-info tw-flex tw-items-center">
+          <li className="comment">
+            <div className="comment-info tw-flex tw-items-center">
               <Link
                 to={`/profile/${comment.username}`}
                 className="comment-user tw-flex"
@@ -68,8 +68,8 @@ export const CommentCard = ({ comment }) => {
                 />
                 <span className="tw-self-center">{comment.username}</span>
               </Link>
-              <span class="middle-dot">·</span>
-              <div class="comment-date">
+              <span className="middle-dot">·</span>
+              <div className="comment-date">
                 {" "}
                 {moment
                   .utc(comment.createdOn)
@@ -82,8 +82,8 @@ export const CommentCard = ({ comment }) => {
                 // eslint-disable-next-line eqeqeq
                 comment.createdOn != comment.updatedOn && (
                   <>
-                    <span class="middle-dot">·</span>
-                    <div class="comment-date">
+                    <span className="middle-dot">·</span>
+                    <div className="comment-date">
                       edited{" "}
                       {moment
                         .utc(comment.updatedOn)
@@ -95,11 +95,11 @@ export const CommentCard = ({ comment }) => {
                 )
               }
             </div>
-            <div class="comment-content">
+            <div className="comment-content">
               {ReactHtmlParser(comment.content)}
             </div>
             {currentUser && currentUser.username === comment.username ? (
-              <div class="comment-toolbar">
+              <div className="comment-toolbar">
                 <a
                   href={() => false}
                   onClick={() => {
@@ -108,7 +108,7 @@ export const CommentCard = ({ comment }) => {
                 >
                   <span className="tw-cursor-pointer">edit</span>
                 </a>
-                <span class="middle-dot">·</span>
+                <span className="middle-dot">·</span>
                 <a href={() => false} onClick={handleDelete}>
                   <span className="tw-cursor-pointer">delete</span>
                 </a>

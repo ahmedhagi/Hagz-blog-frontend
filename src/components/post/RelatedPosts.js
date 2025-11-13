@@ -1,47 +1,53 @@
+import { useEffect, useState } from "react";
 import PostPreview from "./PostPreview";
 import { useSelector } from "react-redux";
+import PostService from "../../services/post.services";
 
-//Related Posts section for the current post on the Post Page
-export default function RelatedPosts({ allPosts }) {
-  let { post } = useSelector((state) => state.post);
 
-  // filter out current post
-  let posts = allPosts.filter((aPost) => aPost.id !== post.id);
+export default function RelatedPosts() {
+  const { post } = useSelector((state) => state.post);
+  const [relatedPosts, setRelatedPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // define maxPosts to display
-  const maxPosts = 5;
-
-  // get tags of current posts
-  const tags = post.tags.map((tag) => {
-    return tag.name;
-  });
-
-  // rate posts depending on tags
-  posts.forEach((post) => {
-    post.relevance = 0;
-    post.tags.forEach((tag) => {
-      if (tags.includes(tag.name)) {
-        post.relevance++;
+  useEffect(() => {
+    const fetchRelatedPosts = async () => {
+      if (!post?.id) return;
+      
+      try {
+        setLoading(true);
+        PostService.getRelatedPosts(post.id, 5).then((response) => {
+          setRelatedPosts(response);
+        });
+      } catch (error) {
+        console.error("Error fetching related posts:", error);
+        setRelatedPosts([]);
+      } finally {
+        setLoading(false);
       }
-    });
-  });
+    };
 
-  // sort posts by relevance
-  const sortedPosts = posts.sort(function (a, b) {
-    return b.relevance - a.relevance;
-  });
+    fetchRelatedPosts();
+  }, [post?.id]);
+
+  if (loading) {
+    return (
+      <div className="tw-flex tw-flex-col tw-shadow-md tw-rounded-md tw-p-3">
+        <p className="tw-my-3 tw-font-bold tw-text-lg">Related Posts</p>
+        <p className="tw-text-gray-500">Loading...</p>
+      </div>
+    );
+  }
+
+  if (relatedPosts.length === 0) {
+    return null;
+  }
 
   return (
-    <>
-    {
-    sortedPosts.length > 0 &&
-    (<div className="tw-flex tw-flex-col tw-shadow-md tw-rounded-md tw-p-3">
+    <div className="tw-flex tw-flex-col tw-shadow-md tw-rounded-md tw-p-3">
       <p className="tw-my-3 tw-font-bold tw-text-lg">Related Posts</p>
-      {sortedPosts.slice(0, maxPosts).map((post, i) => (
-        <PostPreview key={i} postData={post} />
+      {relatedPosts.map((post) => (
+        <PostPreview key={post.id} postData={post} />
       ))}
-    </div>)
-}
-    </>
+    </div>
   );
 }

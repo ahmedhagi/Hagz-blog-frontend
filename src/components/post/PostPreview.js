@@ -11,10 +11,10 @@ export default function PostPreview({ postData }) {
         <div className="tw-flex tw-flex-col">
           <div className="tw-flex tw-flex-col tw-text-gray-400">
             <Link
-              to={`/topic/${post.topic.name}`}
+              to={`/topic/${post.topicName}`}
               className="tw-text-base tw-text-gray-400"
             >
-              {post.topic.name}
+              {post.topicName}
             </Link>
             <div className="tw-flex">
               <Link
@@ -41,7 +41,7 @@ export default function PostPreview({ postData }) {
         </div>
       </div>
       <div className="tw-text-sm tw-text-gray-400 tw-mb-3">
-        <span>{post.comments.length} Comments</span>
+        <span>{post.commentCount} Comments</span>
       </div>
     </>
   );

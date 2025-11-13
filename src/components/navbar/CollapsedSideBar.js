@@ -24,7 +24,7 @@ export const CollapseSidebar = () => {
           <NavigationContent />
         </div>
       </div>
-      <span class="tw-text-lg tw-font-bold tw-mb-2">Login</span>
+      <span className="tw-text-lg tw-font-bold tw-mb-2">Login</span>
       <div className="tw-ml-1.5 tw-mt-2">
         {currentUser ? (
           <a

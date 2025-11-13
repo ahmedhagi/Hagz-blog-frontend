@@ -15,7 +15,7 @@ export const PostWrapper = ({
   return (
     <>
       <div className="tw-flex tw-flex-col tw-px-4 tw-grid-flow-dense sm:tw-col-[1] sm:tw-row-[1]">
-        <div clasName="post-container">
+        <div className="post-container">
           <div className="post-header tw-relative">
             <div className="tw-my-3">
               <Link
